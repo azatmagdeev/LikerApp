@@ -36,6 +36,7 @@ class Widget {
         this.listEl.textContent = '';
         this.liker.sortByCount();
         for (const mem of this.liker.mems) {
+            if (mem.score < -10) continue;
             const newMem = document.createElement('div');
             newMem.innerHTML = `<div class="border">
      <div><img src="${mem.image}" alt=""></div>
@@ -46,9 +47,7 @@ class Widget {
             this.listEl.appendChild(mem.btnMinus);
 
             mem.btnPlus.addEventListener('click', (event) => {
-
                 mem.like();
-
                 event.stopImmediatePropagation();
                 this.showMems()
             });
@@ -57,6 +56,7 @@ class Widget {
                 event.stopImmediatePropagation();
                 this.showMems()
             });
+
         }
 
     }
