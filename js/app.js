@@ -45,12 +45,16 @@ class Widget {
             this.listEl.append(mem.score);
             this.listEl.appendChild(mem.btnMinus);
 
-            mem.btnPlus.addEventListener('click', () => {
+            mem.btnPlus.addEventListener('click', (event) => {
+
                 mem.like();
+
+                event.stopImmediatePropagation();
                 this.showMems()
             });
-            mem.btnMinus.addEventListener('click', () => {
+            mem.btnMinus.addEventListener('click', (event) => {
                 mem.dislike();
+                event.stopImmediatePropagation();
                 this.showMems()
             });
         }
