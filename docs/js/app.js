@@ -42,18 +42,23 @@ class Widget {
      <div><img src="${mem.image}" alt=""></div>
     `;
             this.listEl.appendChild(newMem);
+
+            mem.btnPlus = document.createElement("button");
+            mem.btnPlus.textContent = '👍';
+            mem.btnMinus = document.createElement("button");
+            mem.btnMinus.textContent = '👎';
+
+
             this.listEl.appendChild(mem.btnPlus);
             this.listEl.append(mem.score);
             this.listEl.appendChild(mem.btnMinus);
 
-            mem.btnPlus.addEventListener('click', (event) => {
+            mem.btnPlus.addEventListener('click', () => {
                 mem.like();
-                event.stopImmediatePropagation();
                 this.showMems()
             });
-            mem.btnMinus.addEventListener('click', (event) => {
+            mem.btnMinus.addEventListener('click', () => {
                 mem.dislike();
-                event.stopImmediatePropagation();
                 this.showMems()
             });
 

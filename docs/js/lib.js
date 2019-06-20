@@ -23,11 +23,6 @@ export class Mem {
         this.id = id;
         this.image = image;
         this.score = score;
-        this.btnPlus = document.createElement("button");
-        this.btnPlus.textContent = '👍';
-
-        this.btnMinus = document.createElement("button");
-        this.btnMinus.textContent = '👎'
     }
 
     like() {
